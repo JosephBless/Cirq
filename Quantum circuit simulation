@@ -1,0 +1,76 @@
+Cirq
+Cirq is a Python library for writing, manipulating, and optimizing quantum circuits and running them against quantum computers and simulators.
+
+Build Status  Documentation Status
+Installation and Documentation
+Cirq documentation is available at quantumai.google/cirq.
+
+Documentation for the latest pre-release version of cirq (tracks the repository's master branch; what you get if you pip install --pre cirq), is available at here.
+
+Documentation for the latest stable version of cirq (what you get if you pip install cirq) is available at here.
+
+Installation
+Documentation
+Tutorials
+For a comprehensive list all of the interactive Jupyter Notebooks in our repo (including the ones not yet published to the site) open our repo in Colab.
+
+For the latest news regarding Cirq, sign up to the Cirq-announce email list!
+
+Hello Qubit
+A simple example to get you up and running:
+
+import cirq
+
+# Pick a qubit.
+qubit = cirq.GridQubit(0, 0)
+
+# Create a circuit
+circuit = cirq.Circuit(
+    cirq.X(qubit)**0.5,  # Square root of NOT.
+    cirq.measure(qubit, key='m')  # Measurement.
+)
+print("Circuit:")
+print(circuit)
+
+# Simulate the circuit several times.
+simulator = cirq.Simulator()
+result = simulator.run(circuit, repetitions=20)
+print("Results:")
+print(result)
+Example output:
+
+Circuit:
+(0, 0): ───X^0.5───M('m')───
+Results:
+m=11000111111011001000
+Feature requests / Bugs / Questions
+If you have feature requests or you found a bug, please file them on Github.
+
+For questions about how to use Cirq post to Quantum Computing Stack Exchange with the cirq tag.
+
+How to cite Cirq
+Cirq is uploaded to Zenodo automatically. Click on the badge below to see all the citation formats for all versions.
+
+DOI
+Cirq Contributors Community
+We welcome contributions! Before opening your first PR, a good place to start is to read our guidelines.
+
+We are dedicated to cultivating an open and inclusive community to build software for near term quantum computers. Please read our code of conduct for the rules of engagement within our community.
+
+For real time informal discussions about Cirq, join our cirqdev Gitter channel, come hangout with us!
+
+Cirq Cynque is our weekly meeting for contributors to discuss upcoming features, designs, issues, community and status of different efforts. To get an invitation please join the cirq-dev email list which also serves as yet another platform to discuss contributions and design ideas.
+
+See Also
+For those interested in using quantum computers to solve problems in chemistry and materials science, we encourage exploring OpenFermion and its sister library for compiling quantum simulation algorithms in Cirq, OpenFermion-Cirq.
+
+For machine learning enthusiasts, Tensorflow Quantum is a great project to check out!
+
+For a powerful quantum circuit simulator that integrates well with Cirq, we recommend looking at qsim.
+
+Finally, ReCirq contains real world experiments using Cirq.
+
+Alpha Disclaimer
+Cirq is currently in alpha. We may change or remove parts of Cirq's API when making new releases. To be informed of deprecations and breaking changes, subscribe to the cirq-announce google group mailing list.
+
+Cirq is not an official Google product. Copyright 2019 The Cirq Developers
